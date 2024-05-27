@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,10 +30,10 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 91, 179, 201)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Aplicação de teste'),
+      home: const MyHomePage(title: 'Gerador de número aleatório'),
     );
   }
 }
@@ -55,16 +57,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _randomNumber = 0;
 
-  void _incrementCounter() {
+  void _gerarAleatorio() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
+      Random aleatorio = Random();
+      _randomNumber = aleatorio.nextInt(1000);
     });
   }
 
@@ -106,19 +109,19 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'The generated random number is:',
             ),
             Text(
-              '$_counter',
+              '$_randomNumber',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _gerarAleatorio,
         tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.view_agenda_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
