@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Aplicação teste'),
+      home: const MyHomePage(title: 'Aplicação de teste'),
     );
   }
 }
